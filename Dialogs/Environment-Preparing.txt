@@ -1,1 +1,22 @@
+Environment:
+	- Nvidia version 450.57
+	- Ubuntu 16.04.7 (can't install caffe by 'sudo apt-get caffe', manually install instead)
+	- cuda 10.1
+	- torch 1.3.0 (torch 1.2.0 is only supported on cuda 10.0 and 9.2, which is unaccessable because of the limited disk space)
+	- python 3.6.0
+	- caffe (unaccessable because of the limited disk space)
 
+[ Note: caffe seem to be just for data processing, so I try to do it on my PC where Ubuntu 18.04 is installed.]
+[ Failed ]
+
+[ Note: the files created with caffe is the body and weights of VGG19 to calculate part of the G-loss]
+
+[Note: At last, I built a Linux sub-OS on the lab-PC and installed caffe suceffully, then finished the first 2 convert(in a virtual environment) where Torch is not required. At last I copied the converted files to the server and finished the last convert where pytorch and cuda is required]
+
+(While converting, an error: 
+File "Pytorch_VGGFACE_IR.py", line 126, in __conv
+    layer.state_dict()['bias'].copy_(torch.from_numpy(_weights_dict[name]['bias']))
+    RuntimeError: output with shape [64] doesn't match the broadcast shape [1, 1, 1, 64]
+occured. So I modified the line 126 to:
+    layer.state_dict()['bias'].copy_(torch.from_numpy(_weights_dict[name]['bias'].squeeze()))
+and finally get the file Pytorch_VGGFACE_IR.py and Pytorch_VGGFACE.pth)

@@ -47,8 +47,8 @@ optimizerD = optim.Adam(params = D.parameters(),
                         amsgrad=False)
 
 """Criterion"""
-criterionG = LossG(VGGFace_body_path='Pytorch_VGGFACE_IR.py',
-                   VGGFace_weight_path='Pytorch_VGGFACE.pth', device=device)
+criterionG = LossG(VGGFace_body_path='"/media/danlan/9e141bf2-0912-419c-97d5-06acf34052381/dqy/Pycharm Projects/models/1_Realistic-Neural-Talking-Head-Models/Pytorch_VGGFACE_IR.py"',
+                   VGGFace_weight_path='"/media/danlan/9e141bf2-0912-419c-97d5-06acf34052381/dqy/Pycharm Projects/models/1_Realistic-Neural-Talking-Head-Models/Pytorch_VGGFACE.pth"', device=device)
 criterionDreal = LossDSCreal()
 criterionDfake = LossDSCfake()
 
