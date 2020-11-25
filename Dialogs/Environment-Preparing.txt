@@ -5,6 +5,8 @@ Environment:
 	- torch 1.3.0 (torch 1.2.0 is only supported on cuda 10.0 and 9.2, which is unaccessable because of the limited disk space)
 	- python 3.6.0
 	- caffe (unaccessable because of the limited disk space)
+	- dlib
+	- dominate
 
 [ Note: caffe seem to be just for data processing, so I try to do it on my PC where Ubuntu 18.04 is installed.]
 [ Failed ]
@@ -20,3 +22,4 @@ File "Pytorch_VGGFACE_IR.py", line 126, in __conv
 occured. So I modified the line 126 to:
     layer.state_dict()['bias'].copy_(torch.from_numpy(_weights_dict[name]['bias'].squeeze()))
 and finally get the file Pytorch_VGGFACE_IR.py and Pytorch_VGGFACE.pth)
+
